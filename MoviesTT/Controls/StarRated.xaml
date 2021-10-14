@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoviesTT.Controls.StarRated">
     <StackLayout Orientation="Horizontal" Spacing="3">
-        <Path x:Name="star1" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15"/>
-        <Path x:Name="star2" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15"/>
-        <Path x:Name="star3" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15"/>
-        <Path x:Name="star4" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15"/>
-        <Path x:Name="star5" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15"/>
+        <Path x:Name="star1" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15" Stroke="Transparent" StrokeThickness="0"/>
+        <Path x:Name="star2" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15" Stroke="Transparent" StrokeThickness="0"/>
+        <Path x:Name="star3" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15" Stroke="Transparent" StrokeThickness="0"/>
+        <Path x:Name="star4" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15" Stroke="Transparent" StrokeThickness="0"/>
+        <Path x:Name="star5" x:FieldModifier="public" Aspect="Uniform" WidthRequest="15" HeightRequest="15" Stroke="Transparent" StrokeThickness="0"/>
     </StackLayout>
 </ContentView>
