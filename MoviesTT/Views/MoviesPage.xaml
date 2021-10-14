@@ -62,7 +62,7 @@
                 <Grid ColumnDefinitions="10,20,*,10" HeightRequest="30" Margin="0,15" Padding="2">
                     <Frame BackgroundColor="{StaticResource AppSecundaryLight}" CornerRadius="15" HasShadow="False" Grid.ColumnSpan="4"/>
                     <Path Grid.Column="1" StrokeThickness="0" Stroke="Transparent" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" Aspect="Uniform" VerticalOptions="Center" Fill="White" Data="M 12.5 11 H 11.706 L 11.43 10.726 A 6.469 6.469 0 0 0 13 6.5 A 6.5 6.5 0 0 0 6.5 0 A 6.5 6.5 0 0 0 0 6.5 A 6.5 6.5 0 0 0 6.5 13 A 6.47 6.47 0 0 0 10.725 11.434 L 11.001 11.708 V 12.5 L 16.001 17.491 L 17.49 16 L 12.502 11 Z M 6.5 11 A 4.5 4.5 0 0 1 2 6.5 A 4.5 4.5 0 0 1 6.5 2 A 4.5 4.5 0 0 1 11 6.5 A 4.5 4.5 0 0 1 6.5 11 Z"/>
-                    <c1:vEntry x:Name="Search" Grid.Column="2" Placeholder="Search" BorderThickness="0" PlaceholderColor="Transparent" BorderColor="Transparent"  VerticalOptions="Center" TextColor="White"/>
+                    <c1:vEntry x:Name="Search" Grid.Column="2" Placeholder="Search" BorderThickness="0" PlaceholderColor="White" BorderColor="Transparent"  VerticalOptions="Center" TextColor="White"/>
                 </Grid>
             </StackLayout>
             <Frame BackgroundColor="{StaticResource AppPrimary}" CornerRadius="40" Grid.Row="1" Grid.RowSpan="2"/>
