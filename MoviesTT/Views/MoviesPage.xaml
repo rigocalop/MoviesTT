@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:c1="clr-namespace:MoviesTT.Controls" x:Class="MoviesTT.MoviesPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="cview_empty" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="2"/>
+                <Setter Property="Text" Value="No se encontraron resultados"/>
+            </Style>
+            <Style x:Key="title_list" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="see_all" TargetType="Label">
+                <Setter Property="TextColor" Value="LightGray"/>
+                <Setter Property="Text" Value="See all"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="0,0,20,3"/>
+            </Style>
+
+            <!-- LA SELECCION DE UN ELEMENTO DEL LISTADO NO LO MUESTRE RESALTADO -->
+            <Style TargetType="c1:ContentViewBC">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal"/>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource AppPrimary}"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <!-- TEMPLATE PRINCIPAL DE LOS ELEMENTOS DE LOS LISTADOS -->
+            <DataTemplate x:Key="TMAIN">
+                <c1:ContentViewBC TargetBC="MOVIE">
+                    <Grid RowDefinitions="160,Auto,15" ColumnDefinitions="130">
+                        <Frame Padding="0" CornerRadius="20">
+                            <Image Source="{Binding poster_path}" Aspect="AspectFill"/>
+                        </Frame>
+                        <Label Text="{Binding title}" Grid.Row="1" TextColor="White" LineBreakMode="TailTruncation" MaxLines="1"/>
+                        <c1:StarRated  x:Name="vote_average" Grid.Row="2" Rated="{Binding vote_average}" RatedBase="10"/>
+                    </Grid>
+                </c1:ContentViewBC>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid BackgroundColor="{StaticResource AppSecundary}" RowDefinitions="Auto,20,20,Auto">
+            <StackLayout Margin="50,30,50,20" Spacing="0">
+                
+                <Label Text="Hello, what do you" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                <Label Text="want to watch?" Margin="0,6" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                <!-- CAMPO DE BUSQUEDA -->
+                <Grid ColumnDefinitions="10,20,*,10" HeightRequest="30" Margin="0,15" Padding="2">
+                    <Frame BackgroundColor="{StaticResource AppSecundaryLight}" CornerRadius="25" Grid.ColumnSpan="4"/>
+                    <Path Grid.Column="1" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" Aspect="Uniform" VerticalOptions="Center" Fill="White" Data="M 12.5 11 H 11.706 L 11.43 10.726 A 6.469 6.469 0 0 0 13 6.5 A 6.5 6.5 0 0 0 6.5 0 A 6.5 6.5 0 0 0 0 6.5 A 6.5 6.5 0 0 0 6.5 13 A 6.47 6.47 0 0 0 10.725 11.434 L 11.001 11.708 V 12.5 L 16.001 17.491 L 17.49 16 L 12.502 11 Z M 6.5 11 A 4.5 4.5 0 0 1 2 6.5 A 4.5 4.5 0 0 1 6.5 2 A 4.5 4.5 0 0 1 11 6.5 A 4.5 4.5 0 0 1 6.5 11 Z"/>
+                    <c1:vEntry x:Name="Search" Grid.Column="2" Placeholder="Search" BorderThickness="0" PlaceholderColor="WhiteSmoke" VerticalOptions="Center" TextColor="White"/>
+                </Grid>
+            </StackLayout>
+            <Frame BackgroundColor="{StaticResource AppPrimary}" CornerRadius="40" Grid.Row="1" Grid.RowSpan="2"/>
+        
+            <!-- LISTADOS PRINCIAPLES -->
+            <Grid BackgroundColor="{StaticResource AppPrimary}" Grid.Row="2" Grid.RowSpan="2" Padding="20,10,5,5" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                <!-- TOP RATED -->
+                <Label Text="TOP RATED" Style="{StaticResource title_list}"  Grid.Row="0"/>
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource see_all}"/>
+                <CollectionView ItemsSource="{Binding TopRated}" ItemTemplate="{StaticResource TMAIN}" VerticalOptions="Start" HeightRequest="220" Grid.Row="1" Grid.ColumnSpan="2"
+                    SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <Label Style="{StaticResource cview_empty}"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+                <!-- UPCOMMING -->
+                <Label Text="UPCOMMING" Style="{StaticResource title_list}"  Grid.Row="2"/>
+                <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource see_all}"/>
+                <CollectionView x:Name="CVIEW" x:FieldModifier="public" ItemsSource="{Binding UpComming}" ItemTemplate="{StaticResource TMAIN}" HeightRequest="220"  Grid.Row="3" Grid.ColumnSpan="2"
+                    SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <Label Style="{StaticResource cview_empty}"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+                <!-- POPULAR -->
+                <Label Text="POPULAR" Style="{StaticResource title_list}" Grid.Row="4"/>
+                <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource see_all}"/>
+                <CollectionView ItemsSource="{Binding Popular}" ItemTemplate="{StaticResource TMAIN}" HeightRequest="220" Grid.Row="5" Grid.ColumnSpan="2"
+                    SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <Label Style="{StaticResource cview_empty}"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

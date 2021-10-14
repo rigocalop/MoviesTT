@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MoviesTT.Controls.VBack">
+    <Path Grid.Row="1" Grid.Column="1" WidthRequest="50" HeightRequest="50" Fill="White" Aspect="Uniform" Data="M 123.201 214.072 L 660.835 214.073 C 685.53 214.072 699.993 232.065 699.993 248.997 C 699.993 266.813 682.355 284.981 660.835 284.981 L 124.26 284.981 L 275.072 435.793 C 288.917 449.638 284.145 473.273 273.471 483.946 C 261.223 496.194 237.88 498.028 225.358 485.506 L 13.685 273.833 C 2.496 262.644 0.38 237.466 13.686 224.161 C 84.244 153.603 154.801 83.046 225.359 12.488 C 236.557 1.29 262.283 2.859 273.471 14.047 C 286.791 27.367 287.594 49.68 275.072 62.201 L 123.201 214.072 Z"/>
+</ContentView>

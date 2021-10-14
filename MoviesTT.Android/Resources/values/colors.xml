@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launcher_background">#283646</color>
+    <color name="splash_background">#283646</color>
+      
+  <color name="primary">#283646</color>
+  <color name="primary_dark">#283646</color>
+  <color name="primary_light">#283646</color>
+  <color name="accent">#283646</color>
+  <color name="primary_text">#FFC800</color>
+  <color name="secondary_text">#283646</color>
+  <color name="icons">#33ff33</color>
+  <color name="divider">#33ff33</color>
+  <color name="window_background">#F06292</color>
+</resources>

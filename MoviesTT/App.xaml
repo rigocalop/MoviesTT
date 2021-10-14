@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Class="MoviesTT.App">
+    <Application.Resources>
+        <Color x:Key="StarRated_TRUE">#F9D32F</Color>
+        <Color x:Key="StarRated_FALSE">#575639</Color>
+        <Color x:Key="AppPrimary">#283646</Color>
+        <Color x:Key="AppSecundary">#5FA3D2</Color>
+        <Color x:Key="AppSecundaryLight">#90BFE0</Color>
+    </Application.Resources>
+    
+</Application>

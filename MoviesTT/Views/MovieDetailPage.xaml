@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:c1="clr-namespace:MoviesTT.Controls" 
+             BackgroundColor="{StaticResource AppPrimary}"
+             x:Class="MoviesTT.Views.MovieDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="280,Auto">
+                <!-- SECCION DE IMAGEN Y BOTONES SUPERIORES -->
+                <Grid ColumnDefinitions="20,20,*,20,20" RowDefinitions="30,20,*">
+                    <Image Source="{Binding backdrop_path}" Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                    <c1:VBack x:Name="_BACK" Grid.Row="1" Grid.Column="1" WidthRequest="25" HeightRequest="25"/>
+                    <Path Grid.Row="1" Grid.Column="3" WidthRequest="50" HeightRequest="50" Stroke="White" StrokeThickness="1" Aspect="Uniform" Data="M 8.5 14.85 L 7.34 13.818 C 3.22 10.166 0.5 7.757 0.5 4.801 A 4.309 4.309 0 0 1 4.9 0.501 A 4.836 4.836 0 0 1 8.5 2.135 A 4.836 4.836 0 0 1 12.1 0.501 A 4.309 4.309 0 0 1 16.5 4.801 C 16.5 7.757 13.78 10.166 9.66 13.825 Z"/>
+                </Grid>
+            
+                <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto,Auto" Margin="20">
+                    <!-- SECCION PROPIEDAES DE TITULO, OVERVIEW -->
+                    <Label Text="{Binding title}" Grid.Row="0" FontSize="25" TextColor="White" FontAttributes="Bold"/>
+                    <Grid Grid.Row="1" ColumnDefinitions="120,*" HeightRequest="30" Margin="0,10">
+                        <Button BackgroundColor="Gray" CornerRadius="30" Text="WATCH NOW" Padding="0" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                        <c1:StarRated  Grid.Column="1" x:Name="STARS" RatedBase="10" HorizontalOptions="End"/>
+                    </Grid>
+                    <Label Text="{Binding overview}" Grid.Row="2" FontSize="15" TextColor="LightGray" Margin="0,10"/>
+                
+                    <!-- SECCION DE LISTADO DE CREDITOS -->
+                    <CollectionView Grid.Row="3" x:Name="CREDITS" HeightRequest="100">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="40"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout WidthRequest="60">
+                                    <Frame WidthRequest="60" HeightRequest="60" Padding="0" CornerRadius="30">
+                                        <Image Source="{Binding profile_path}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    </Frame>
+                                    <Label Text="{Binding name}" MaxLines="2" LineBreakMode="TailTruncation"  TextColor="LightGray" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!-- SECCION PROPIEDADES STUDIO, GENERO Y RELEASE -->
+                    <Grid Grid.Row="4" ColumnDefinitions="60,*" RowDefinitions="Auto,Auto,Auto" Margin="0,10">
+                        <Label Text="Studio" TextColor="White" FontAttributes="Bold" Grid.Row="0"/>
+                        <Label Text="{Binding studio}" TextColor="LightGray" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="Genre"  TextColor="White" FontAttributes="Bold" Grid.Row="1"/>
+                        <Label Text="{Binding genres}"  TextColor="LightGray" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Release" TextColor="White" FontAttributes="Bold" Grid.Row="2"/>
+                        <Label Text="{Binding release}" TextColor="LightGray" Grid.Row="2" Grid.Column="1"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
