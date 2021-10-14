@@ -126,5 +126,11 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesTT\MoviesTT.csproj">
+      <Project>{41792a53-7924-4bbf-974d-aa6efc3313e3}</Project>
+      <Name>MoviesTT</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

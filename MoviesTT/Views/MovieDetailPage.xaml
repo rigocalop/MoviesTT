@@ -17,7 +17,7 @@
                     <!-- SECCION PROPIEDAES DE TITULO, OVERVIEW -->
                     <Label Text="{Binding title}" Grid.Row="0" FontSize="25" TextColor="White" FontAttributes="Bold"/>
                     <Grid Grid.Row="1" ColumnDefinitions="120,*" HeightRequest="30" Margin="0,10">
-                        <Button BackgroundColor="Gray" CornerRadius="30" Text="WATCH NOW" Padding="0" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                        <Button BackgroundColor="Gray" CornerRadius="15" Text="WATCH NOW" Padding="0" TextColor="White" FontSize="12" FontAttributes="Bold"/>
                         <c1:StarRated  Grid.Column="1" x:Name="STARS" RatedBase="10" HorizontalOptions="End"/>
                     </Grid>
                     <Label Text="{Binding overview}" Grid.Row="2" FontSize="15" TextColor="LightGray" Margin="0,10"/>
@@ -30,7 +30,7 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout WidthRequest="60">
-                                    <Frame WidthRequest="60" HeightRequest="60" Padding="0" CornerRadius="30">
+                                    <Frame WidthRequest="60" HeightRequest="60" Padding="0" CornerRadius="30" IsClippedToBounds="True">
                                         <Image Source="{Binding profile_path}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                     </Frame>
                                     <Label Text="{Binding name}" MaxLines="2" LineBreakMode="TailTruncation"  TextColor="LightGray" HorizontalTextAlignment="Center"/>
