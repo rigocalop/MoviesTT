@@ -40,7 +40,7 @@
                     </CollectionView>
 
                     <!-- SECCION PROPIEDADES STUDIO, GENERO Y RELEASE -->
-                    <Grid Grid.Row="4" ColumnDefinitions="60,*" RowDefinitions="Auto,Auto,Auto" Margin="0,10">
+                    <Grid Grid.Row="4" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" Margin="0,10">
                         <Label Text="Studio" TextColor="White" FontAttributes="Bold" Grid.Row="0"/>
                         <Label Text="{Binding studio}" TextColor="LightGray" Grid.Row="0" Grid.Column="1"/>
                         <Label Text="Genre"  TextColor="White" FontAttributes="Bold" Grid.Row="1"/>
